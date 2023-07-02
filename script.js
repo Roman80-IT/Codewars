@@ -1,8 +1,124 @@
 //              node script                  - запуск через термінал ≡
 
+//! ================================================================================================
+//?        join()    -  конкатенація
+//* Рядок const result = filteredBukvs.join(""); виконує об'єднання (конкатенацію) всіх елементів масиву filteredBukvs у одну рядкову значення.
+//*  В цьому випадку, елементи масиву filteredBukvs будуть об'єднані без роздільників, оскільки пустий рядок "" передається в метод join.
+//*          якщо масив filteredCharacters містить значення ['T', 'h', 's', ' ', 'w', 'b', 's', 't'],
+//*          то після виконання filteredCharacters.join("") отримаємо рядок "Ths wbst".
+//! ================================================================================================
+//?        Регулярний вираз /[AEIOUaeiou]/
+//* представляє собою шаблон, який визначає набір символів, які співпадають з будь-якими буквами у верхньому та нижньому регістрах.
+//* Цей регулярний вираз використовується в методах, які працюють з рядками: таких як replace, match, test, split, exec, search
+
+//*    '/.../'  -  синтаксичні обрамлення для вказання регулярного виразу у JS, - це спосіб визначення регулярних виразів
+//*   [AEIOUaeiou]: - набір символів, заключених у квадратні дужки [].
+//*   g: Це флаг глоб  -  вказує на глобальний пошук. Використання флагу g дозволяє знайти всі збіги регулярного виразу, а не зупинятися після першого збігу.
+//*        Флаг g використовується, коли вам потрібно знайти всі входження замість першого збігу.
+
+//? search: Пошук входження регулярного виразу у рядку.
+// const str = "Hello, world!";
+// const pattern = /world/;
+// const result = str.search(pattern); //     поверне 7
+
+//? match: Повертає масив зі збігами регулярного виразу у рядку.
+// const str = "Hello, world!";
+// const pattern = /l/;
+// const result = str.match(pattern); //      поверне ['l', 'l', 'l']
+
+//? replace: Заміна збігів регулярного виразу у рядку на нові значення.
+// const str = "Hello, world!";
+// const pattern = /world/;
+// const replacement = "universe";
+// const result = str.replace(pattern, replacement); // поверне 'Hello, universe!'
+
+//? test: Перевірка, чи є збіги регулярного виразу у рядку.
+// const str = "Hello, world!";
+// const pattern = /world/;
+// const result = pattern.test(str); //        поверне true
+//! ================================================================================================
+//* Інші спеціальні символи та патерни, які можна використовувати в регулярних виразах, наприклад:
+
+//*    .: Збігає будь-який символ, крім нового рядка
+//         const pattern = /h.t/; // Збігає з "hat", "hot", "hit" і т.д.
+//         console.log(pattern.test("hat")); // true
+//         console.log(pattern.test("hot")); // true
+//         console.log(pattern.test("hip")); // false
+//*    \d: Збігає будь-яку цифру
+//         const pattern = /\d\d-\d\d-\d\d\d\d/; // Збігає з форматом дати "dd-dd-dddd" (наприклад, "01-15-2022")
+//         console.log(pattern.test("01-15-2022")); // true
+//         console.log(pattern.test("12-31-99")); // false
+//*    \w: Збігає будь-яку букву, цифру або символ підкреслення
+//         const pattern = /\w+/; // Збігає з одним або більше буквою, цифрою або символом підкреслення
+//         console.log(pattern.test("hello")); // true
+//         console.log(pattern.test("123")); // true
+//         console.log(pattern.test("Hello_World")); // true
+//*    +: Збігає одне або більше повторення попереднього шаблону   //    Відповідає одному або більше повторень попереднього символу або групи символів
+//         const pattern = /lo+/; // Збігає з "lo", "loo", "looo" і т.д.
+//         console.log(pattern.test("lo")); // true
+//         console.log(pattern.test("loo")); // true
+//         console.log(pattern.test("hello")); //! false
+//*    *: Збігає нуль або більше повторень попереднього шаблону   //   Відповідає нулю або більше повторень попереднього символу або групи символів
+//*    ?: Робить попередній символ або групу символів необов'язковим.
+//*    ^: Вказує на початок рядка.
+//*    $: Вказує на кінець рядка.
+//*    []: Збігає будь-який символ з набору вказаних в дужках.
+//        const pattern = /[aeiou]/; // Збігає з будь-якою голосною буквою
+//        console.log(pattern.test("apple")); // true
+//        console.log(pattern.test("banana")); // true
+//        console.log(pattern.test("orange")); // false
+//*       [AEIOUaeiou] відповідає будь-якій голосній букві.
+//*       [0-9] відповідає будь-якій цифрі від 0 до 9.
+//*       [a-zA-Z] відповідає будь-якій латинській букві в будь-якому регістрі.
+//*       Можна комбінувати символи та діапазони, щоб створити набір, який відповідає потребам - [AEIOUaeiou0-9] відповідає будь-якій голосній букві або цифрі від 0 до 9.
+//*    |: Вказує альтернативу, яка збігається з одним з наборів шаблонів.
+//* "збігає" означає перевірку на відповідність регулярному виразу
+//! ================================================================================================
+//? модифікатори вказуються після закритого слешу / та визначають спосіб співставлення з рядком
+//* gi - це комбінація двох модифікаторів:
+//*     g: Global (глобальний) модифікатор, який означає пошук всіх входжень регулярного виразу у всьому рядку, а не тільки першого входження.
+//*     i: Case-insensitive (регістронезалежний) модифікатор, який означає, що в пошуку не враховується регістр (великі або маленькі літери).
+//* Отже, вираз /[aeiou]/gi вказує на пошук всіх голосних літер у рядку str, незалежно від їх регістру (великі або маленькі літери).
+//*        Після знаходження голосних літер використовується метод replace для їх видалення з рядка
+//! ================================================================================================
+//?   Інкремент: x++ або ++x. Ці оператори збільшують значення змінної x на 1.
+//?   Декремент: x-- або --x. Ці оператори зменшують значення змінної x на 1.
+//* Префіксний інкремент або декремент: ++x або --x. Ці оператори збільшують або зменшують значення змінної x на 1 перед використанням її у виразі.
+//* Постфіксний інкремент або декремент: x++ або x--. Ці оператори збільшують або зменшують значення змінної x на 1 після використання її у виразі.
+//          let x = 5;
+//          console.log(x++);  // Виведе 5
+//          console.log(x);    // Виведе 6
+
+//          let y = 10;
+//          console.log(--y);  // Виведе 9
+//          console.log(y);    // Виведе 9
+//* У першому випадку, коли використовується постфіксний інкремент x++, спочатку виводиться значення x (5), а потім відбувається збільшення x на 1.
+//* У другому випадку, коли використовується префіксний декремент--y, спочатку відбувається зменшення y на 1, а потім виводиться значення y(9).
 //! ============================================================================
-//* Task 1
+//? ----- Disemvowel Trolls (Негласні тролі) -----
 //! ============================================================================
+//? ТЕОРІЯ
+//?        replace(a, b)       /[AEIOUaeioubd]/g       split(delimiter)       filter()        join
+//*    Щоб перебрати елементи в рядку - використовується цикл for
+//*          Елементи масиву vowels повинні бути рядками (обгорнути літери у лапки)
+//               const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
+//!               { str[i] = "" } - невірний запис
+//*          У JS рядки (strings) є не змінними (immutable) об'єктами, - не можна змінити окремий символ рядка, присвоївши йому нове значення.
+//*             Тому, намагання присвоїти порожній рядок "" до str[i] буде викликати помилку.
+//*             Замість цього є - метод replace(a, b)
+//?              'assert.strictEqual' є методом з бібліотеки 'chai'  - використовується для перевірки рівності двох значень
+//               assert.strictEqual(actual, expected);
+//*          Цей метод порівнює actual(фактичне значення), яке повертається з тестованої ф-ції або виразу, з expected (очікуване значення).
+//*          Якщо фактичне значення точно дорівнює очікуваному значенню, тобто вони є строго рівними (як за типом, так і за значенням),
+//*              тоді тест вважається успішним і не видає помилок. Наприклад:
+//               assert.strictEqual(disemvowel("This website is for losers LOL!"),  "Ths wbst s fr lsrs LL!"  );
+//*           Бібліотека 'chai' - популярна б-ка для тестування коду в JS, надає різні методи тверджень(assertions),
+//*              які допомагають створювати автоматичні тести для перевірки правильності роботи коду.
+//*           Має зручний синтаксис, широкі можливості тверджень і впроваджується легко. Вона також поєднується з іншими утилітами тестування, такими як фреймворк 'Mocha',
+//*              що дозволяє створювати потужні тестові набори і виконувати їх у зручний спосіб.
+//            Бібліотека в програмуванні - це збірка попередньо написаних і вкомпільованих функцій, класів, методів та інших компонентів,
+//               які можуть використовуватися розробниками для розв'язання певних задач.
+//! ================================================================================================
 
 //* Тролі атакують ваш розділ коментарів!
 //* Поширеним способом вирішення цієї ситуації є видалення всіх голосних із коментарів тролів, нейтралізуючи загрозу.
@@ -11,49 +127,314 @@
 //*      Примітка: для цієї ката 'y' не вважається голосною.
 // A, E, I, O, U, a, e, i, o, u
 
-const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
+//!            ----- ВАРІАНТ1      цикл for і метод replace() -----
 
-function disemvowel(str) {
-  for (let i = 0; i < str.length; i = i + 1) {
-    // або 'i += 1' або за допомогою запису інкременту '++i'
-    if (vowels.includes(str[i])) {
-      str = str.replace(str[i], "");
-    }
-  }
-  return str;
-}
+// function disemvowel(str) {
+//   const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
+//   for (let i = 0; i < str.length; i = i + 1) {
+//     //!  Однак, при кожній заміні довжина рядка str змінюється, що призводить до неправильної обробки
+//     if (vowels.includes(str[i])) {
+//           / або 'i += 1' або за допомогою запису інкременту '++i'
+//       str = str.replace(str[i], "");
+//     }
+//   }
+//   return str;
+// }
 
-const { assert } = require("chai");
+//?            ----- ВАРІАНТ1      цикл for і метод includes() -----
+// function disemvowel(str) {
+//   const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
+//   let result = "";
+//   for (let i = 0; i < str.length; i += 1) {
+//     if (!vowels.includes(str[i])) {
+//       result += str[i];
+//     }
+//   }
+//   return result;
+// }
+//?   -------------------------  indexOf  =>
+// const disemvowel = (str) => {
+//   const vowels = ["a", "e", "i", "o", "u", "A", "E", "I", "O", "U"];
+//   let newStr = "";
+//   for (let i = 0; i <= str.length; i++) {
+//     let char = str.charAt(i);
+//     if (vowels.indexOf(char) == -1) {
+//       newStr += char;
+//     }
+//   }
+//   return newStr;
+// };
 
-describe("Basic tests", () => {
-  it("Testing for fixed tests", () => {
-    assert.strictEqual(
-      disemvowel("This website is for losers LOL!"),
-      "Ths wbst s fr lsrs LL!"
-    );
-    assert.strictEqual(
-      disemvowel(
-        "No offense but,\nYour writing is among the worst I've ever read"
-      ),
-      "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd"
-    );
-    assert.strictEqual(
-      disemvowel("What are you, a communist?"),
-      "Wht r y,  cmmnst?"
-    );
-  });
-});
+//?            ----- ВАРІАНТ2     методи split(delimiter)   filter()   includes()    test()   join() -----
+// function disemvowel(str) {
+//   const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
+//   const characters = str.split("");
+//   const filteredCharacters = characters.filter((a) => !vowels.includes(a));
+//   const result = filteredCharacters.join("");
+//   return result;
+// }
+//?   ------------------------- test()
+// function disemvowel(str) {
+//   return str
+//     .split("")
+//     .filter((a) => !/[AEIOUaeiou]/.test(a))
+//     .join("");
+// }
+//?   -------------------------  toLowerCase()
+// const vowels = "aeiou";
+// function disemvowel(str) {
+//   return str
+//     .split("")
+//     .filter((letter) => !vowels.includes(letter.toLowerCase()))
+//     .join("");
+// }
+//?   -------------------------  toLowerCase()   indexOf   filter(function (el) {})
+// function disemvowel(str) {
+//   var vowels = ["a", "e", "i", "o", "u"];
+
+//   return str
+//     .split("")
+//     .filter(function (el) {
+//       return vowels.indexOf(el.toLowerCase()) == -1;
+//     })
+//     .join("");
+// }
+
+//?            ----- ВАРІАНТ3   Використання регулярного виразу і методу replace(a, b) -----
+// function disemvowel(str) {
+//   const regex = /[AEIOUaeioubd]/g;
+//   const result = str.replace(regex, "");
+//   return result;
+// }
+//?   -------------------------
+// function disemvowel(str) {
+//   return str.replace(/[AEIOUaeiou]/g, "");
+// }
+//?   -------------------------
+// function disemvowel(str) {
+//   return str.replace(/[aeiou]/gi, "");
+// }
+//?   -------------------------
+// disemvowel = (str) => str.replace(/[aeiou]/gi, "");
+//?   -------------------------
+// function disemvowel(str) {
+//   return (str || "").replace(/[aeiou]/gi, "");
+// }
+//! console
+// console.log(disemvowel("fbZosDeagI"));
+
+//! Sample Tests
+// const { assert } = require("chai");
+
+// describe("Basic tests", () => {
+//   it("Testing for fixed tests", () => {
+//     assert.strictEqual(
+//       disemvowel("This website is for losers LOL!"),
+//       "Ths wbst s fr lsrs LL!"
+//     );
+//     assert.strictEqual(
+//       disemvowel(
+//         "No offense but,\nYour writing is among the worst I've ever read"
+//       ),
+//       "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd"
+//     );
+//     assert.strictEqual(
+//       disemvowel("What are you, a communist?"),
+//       "Wht r y,  cmmnst?"
+//     );
+//   });
+// });
 //! ============================================================================
-//* Task 2
+//? ----- Take a Ten Minutes Walk (Пройдіться десять хвилин) -----
 //! ============================================================================
+//* Ви живете в місті Картезія, де всі дороги викладені в ідеальну сітку. Ви прийшли на 10 хв раніше, тому вирішили піти на коротку прогулянку.
+//*  Місто надає громадянам програму для створення прогулянок на їхніх телефонах — щоразу, коли ви натискаєте кнопку, вона надсилає вам рядок із однієї літери,
+//*  що представляють маршрути прогулянки(наприклад, ['n', 's', 'w', 'е']). Ви завжди проходите лише 1 квартал для кожної літери(напрямку),
+//*  і ви знаєте, що вам знадобиться 1 хв, щоб подолати один квартал міста, тому створіть ф-цію,
+//*  яка повертатиме значення true, якщо прогулянка, яку вам надає програма, займе у вас рівно 10 хв (ви не хочете раніше чи пізніше!)
+//*  і, звичайно, поверне вас до вихідної точки. В іншому випадку поверніть false.
+// Примітка: ви завжди отримуватимете дійсний масив, що містить випадковий асортимент літер напрямків(лише «n», «s», «e» або «w»).
+// Це ніколи не дасть вам порожній масив (це не прогулянка, це стояння!).
+
+//?            ----- ВАРІАНТ1      switch   for   x++ -----
+// function isValidWalk(walk) {
+//   if (walk.length !== 10) {
+//     return false;
+//   }
+
+//   let x = 0; // початкові координати
+//   let y = 0;
+
+//   for (let i = 0; i < walk.length; i++) {
+//     switch (walk[i]) {
+//       case "n":
+//         y++;
+//         break;
+//       case "s":
+//         y--;
+//         break;
+//       case "e":
+//         x++;
+//         break;
+//       case "w":
+//         x--;
+//         break;
+//       default:
+//         return false; // невірний напрямок
+//     }
+//   }
+//   return x === 0 && y === 0; // повертає true, якщо повернулися в початкову точку
+// }
+
+//?            ----- ВАРІАНТ2 -----
+// function isValidWalk(walk) {
+//   var dx = 0;
+//   var dy = 0;
+//   var dt = walk.length;
+
+//   for (var i = 0; i < walk.length; i++) {
+//     switch (walk[i]) {
+//       case "n":
+//         dy--;
+//         break;
+//       case "s":
+//         dy++;
+//         break;
+//       case "w":
+//         dx--;
+//         break;
+//       case "e":
+//         dx++;
+//         break;
+//     }
+//   }
+
+//   return dt === 10 && dx === 0 && dy === 0;
+// }
+//?            ----- ВАРІАНТ3 -----
+// function isValidWalk(walk) {
+//   function count(val) {
+//     return walk.filter(function (a) {
+//       return a == val;
+//     }).length;
+//   }
+//   return (
+//     walk.length == 10 && count("n") == count("s") && count("w") == count("e")
+//   );
+// }
+//?            ----- ВАРІАНТ4 -----
+// function isValidWalk(walk) {
+//   const north = walk.filter((item) => {
+//     return item === "n";
+//   }).length;
+//   const south = walk.filter((item) => {
+//     return item === "s";
+//   }).length;
+//   const east = walk.filter((item) => {
+//     return item === "e";
+//   }).length;
+//   const west = walk.filter((item) => {
+//     return item === "w";
+//   }).length;
+
+//   return walk.length === 10 && north === south && east === west;
+// }
+//?            ----- ВАРІАНТ5 -----
+// function isValidWalk(walk) {
+//   var res = { n: 0, w: 0, s: 0, e: 0 };
+//   walk.forEach((c) => res[c]++);
+//   return walk.length === 10 && res.n == res.s && res.e == res.w;
+// }
+//?            ----- ВАРІАНТ6 -----
+// function isValidWalk(walk) {
+//   return (
+//     walk.length == 10 &&
+//     !walk.reduce(function (w, step) {
+//       return w + { n: -1, s: 1, e: 99, w: -99 }[step];
+//     }, 0)
+//   );
+// }
+//?            ----- ВАРІАНТ7 -----
+// function isValidWalk(walk) {
+//   function count(c) {
+//     return walk.filter(function (v) {
+//       return v == c;
+//     }).length;
+//   }
+//   return (
+//     walk.length == 10 && count("w") == count("e") && count("n") == count("s")
+//   );
+// }
+//?            ----- ВАРІАНТ8 -----
+// function isValidWalk(walk) {
+//   if (walk.length != 10) return false;
+//   var c = {};
+//   walk.forEach(function (d) {
+//     c[d] ? (c[d] += 1) : (c[d] = 1);
+//   });
+//   return c["w"] == c["e"] && c["n"] == c["s"];
+// }
+//! console
+// console.log(isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s"])); // true
+// console.log(
+//   isValidWalk(["w", "e", "w", "e", "w", "e", "w", "e", "w", "e", "w", "e"])
+// ); // false
+
+// console.log(isValidWalk(["e", "w"])); // false
+// console.log(isValidWalk(["n", "n", "n", "s", "n", "s", "n", "s", "n", "s"])); // false
 
 //! ============================================================================
-//* Task 3
+//? Playing with digits  (Гра з цифрами)
 //! ============================================================================
+//* Деякі числа мають смішні властивості. Наприклад:
+//* 89 --> 8¹ + 9² = 89 * 1
+//* 695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
+//* 46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+
+//* Дано натуральне число n, записане як abcd... (a, b, c, d... є цифрами) і натуральне число p
+//* ми хочемо знайти таке натуральне число k, якщо воно існує, щоб сума цифр числа n, узятих до послідовних степенів p, дорівнювала k * n.
+//* Іншими словами:
+//* Чи існує ціле число k, наприклад: (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
+//* Якщо це так, ми повернемо k, якщо ні, повернемо -1.
+
+//* Примітка: n і p завжди задаються як суто додатні цілі числа.
+// Some numbers have funny properties. For example:
+
+// 89 --> 8¹ + 9² = 89 * 1
+
+// 695 --> 6² + 9³ + 5⁴= 1390 = 695 * 2
+
+// 46288 --> 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
+
+// Given a positive integer n written as abcd... (a, b, c, d... being digits) and a positive integer p
+
+// we want to find a positive integer k, if it exists, such that the sum of the digits of n taken to the successive powers of p is equal to k * n.
+// In other words:
+
+// Is there an integer k such as : (a ^ p + b ^ (p+1) + c ^(p+2) + d ^ (p+3) + ...) = n * k
+
+// If it is the case we will return k, if not return -1.
+
+// Note: n and p will always be given as strictly positive integers.
+
+// digPow(89, 1) should return 1 since 8¹ + 9² = 89 = 89 * 1
+// digPow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 * k
+// digPow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+// digPow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51
 
 //! ============================================================================
-//* Task 4
+//? (7) Friend or Foe?  (Друг чи ворог?)
 //! ============================================================================
+//* Створіть програму, яка фільтрує список рядків і повертає список лише з іменем ваших друзів.
+//* Якщо в імені рівно 4 літери, будьте впевнені, це має бути ваш друг! В іншому випадку ви можете бути впевнені, що він не...
+// Приклад: Input = ["Ryan", "Kieran", "Jason", "Yous"], Output = ["Ryan", "Yous"]
+
+// тобто
+
+// друг ["Райан", "Кіран", "Марк"] `should Be` ["Райан", "Марк"]
+// Примітка: збережіть оригінальний порядок імен у виводі.
+
+function isFriend (set)
 
 //! ============================================================================
 //* Task 5
