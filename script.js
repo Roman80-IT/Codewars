@@ -33,7 +33,7 @@
 //*      Примітка: для цієї ката 'y' не вважається голосною.
 // A, E, I, O, U, a, e, i, o, u
 
-//!            ----- ВАРІАНТ1      цикл for і метод replace() -----
+//!            ----- ВАРІАНТ 1      цикл for і метод replace() -----
 
 // function disemvowel(str) {
 //   const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
@@ -47,7 +47,7 @@
 //   return str;
 // }
 
-//?            ----- ВАРІАНТ1      цикл for і метод includes() -----
+//?            ----- ВАРІАНТ 1      цикл for і метод includes() -----
 // function disemvowel(str) {
 //   const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
 //   let result = "";
@@ -71,7 +71,7 @@
 //   return newStr;
 // };
 
-//?            ----- ВАРІАНТ2     методи split(delimiter)   filter()   includes()    test()   join() -----
+//?            ----- ВАРІАНТ 2     методи split(delimiter)   filter()   includes()    test()   join() -----
 // function disemvowel(str) {
 //   const vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
 //   const characters = str.split("");
@@ -106,7 +106,7 @@
 //     .join("");
 // }
 
-//?            ----- ВАРІАНТ3   Використання регулярного виразу і методу replace(a, b) -----
+//?            ----- ВАРІАНТ 3   Використання регулярного виразу і методу replace(a, b) -----
 // function disemvowel(str) {
 //   const regex = /[AEIOUaeioubd]/g;
 //   const result = str.replace(regex, "");
@@ -162,7 +162,7 @@
 // Примітка: ви завжди отримуватимете дійсний масив, що містить випадковий асортимент літер напрямків(лише «n», «s», «e» або «w»).
 // Це ніколи не дасть вам порожній масив (це не прогулянка, це стояння!).
 
-//?            ----- ВАРІАНТ1      switch   for   x++ -----
+//?            ----- ВАРІАНТ 1      switch   for   x++ -----
 // function isValidWalk(walk) {
 //   if (walk.length !== 10) {
 //     return false;
@@ -192,7 +192,7 @@
 //   return x === 0 && y === 0; // повертає true, якщо повернулися в початкову точку
 // }
 
-//?            ----- ВАРІАНТ2 -----
+//?            ----- ВАРІАНТ 2 -----
 // function isValidWalk(walk) {
 //   var dx = 0;
 //   var dy = 0;
@@ -217,7 +217,7 @@
 
 //   return dt === 10 && dx === 0 && dy === 0;
 // }
-//?            ----- ВАРІАНТ3 -----
+//?            ----- ВАРІАНТ 3 -----
 // function isValidWalk(walk) {
 //   function count(val) {
 //     return walk.filter(function (a) {
@@ -228,7 +228,7 @@
 //     walk.length == 10 && count("n") == count("s") && count("w") == count("e")
 //   );
 // }
-//?            ----- ВАРІАНТ4 -----
+//?            ----- ВАРІАНТ 4 -----
 // function isValidWalk(walk) {
 //   const north = walk.filter((item) => {
 //     return item === "n";
@@ -245,13 +245,13 @@
 
 //   return walk.length === 10 && north === south && east === west;
 // }
-//?            ----- ВАРІАНТ5 -----
+//?            ----- ВАРІАНТ 5 -----
 // function isValidWalk(walk) {
 //   var res = { n: 0, w: 0, s: 0, e: 0 };
 //   walk.forEach((c) => res[c]++);
 //   return walk.length === 10 && res.n == res.s && res.e == res.w;
 // }
-//?            ----- ВАРІАНТ6 -----
+//?            ----- ВАРІАНТ 6 -----
 // function isValidWalk(walk) {
 //   return (
 //     walk.length == 10 &&
@@ -260,7 +260,7 @@
 //     }, 0)
 //   );
 // }
-//?            ----- ВАРІАНТ7 -----
+//?            ----- ВАРІАНТ 7 -----
 // function isValidWalk(walk) {
 //   function count(c) {
 //     return walk.filter(function (v) {
@@ -271,7 +271,7 @@
 //     walk.length == 10 && count("w") == count("e") && count("n") == count("s")
 //   );
 // }
-//?            ----- ВАРІАНТ8 -----
+//?            ----- ВАРІАНТ 8 -----
 // function isValidWalk(walk) {
 //   if (walk.length != 10) return false;
 //   var c = {};
@@ -338,11 +338,11 @@
 //* друг ["Райан", "Кіран", "Марк"] `should Be` ["Райан", "Марк"]
 //* Примітка: збережіть оригінальний порядок імен у виводі.
 
-//?            ----- ВАРІАНТ1 -----   filter()  =>
+//?            ----- ВАРІАНТ 1 -----   filter()  =>
 // function friend(friends) {
 //   return friends.filter((name) => name.length === 4);
 // }
-//?            ----- ВАРІАНТ2 -----
+//?            ----- ВАРІАНТ 2 -----
 // function friend(friends) {
 //   let set = [];
 //   for (let i = 0; i < friends.length; i += 1) {
@@ -352,9 +352,9 @@
 //   }
 //   return set;
 // }
-//?            ----- ВАРІАНТ3 -----
+//?            ----- ВАРІАНТ 3 -----
 // const friend = (friends) => friends.filter((friend) => friend.length == 4);
-//?            ----- ВАРІАНТ4 -----
+//?            ----- ВАРІАНТ 4 -----
 // function friend(friends) {
 //     //*Create new array called "myFriends" for add your friends
 //   var i,
@@ -370,9 +370,9 @@
 
 //   return myFriends;
 // }
-//?            ----- ВАРІАНТ5 -----
+//?            ----- ВАРІАНТ 5 -----
 // const friend = (f) => f.filter((n) => isNaN(n) && n.length == 4);
-//?            ----- ВАРІАНТ6 -----
+//?            ----- ВАРІАНТ 6 -----
 // function friend(friends) {
 //   var realFriends = [];
 //   for (i = 0; i < friends.length; i++) {
@@ -382,10 +382,10 @@
 //   }
 //   return realFriends;
 // }
-//?            ----- ВАРІАНТ7 -----
+//?            ----- ВАРІАНТ 7 -----
 // const friend = (friends) =>
 //   friends.filter((f) => f.length == 4 && /^[a-zA-Z]+$/.test(f));
-//?            ----- ВАРІАНТ8 -----
+//?            ----- ВАРІАНТ 8 -----
 // function friend(friends) {
 //   return friends.reduce((res, x) => {
 //     if (x.length == 4) {
@@ -403,18 +403,18 @@
 //* Банкомати дозволяють використовувати 4- або 6-значні PIN-коди, а PIN-коди можуть містити лише 4 або 6 цифр.
 //* Якщо функція передає дійсний рядок PIN-коду, повертає true, інакше повертає false.
 
-//?            ----- ВАРІАНТ1 -----
+//?            ----- ВАРІАНТ 1 -----
 // function validatePIN(pin) {
 //   // const pinRegex = /^\d+$/; // Регулярний вираз для перевірки цифр
 //   return /^\d+$/.test(pin) && (pin.length === 4 || pin.length === 6);
 // }
-//?            ----- ВАРІАНТ2 -----
+//?            ----- ВАРІАНТ 2 -----
 // function validatePIN(pin) {
 //   return /^(\d{4}|\d{6})$/.test(pin);
 // }
-//?            ----- ВАРІАНТ3 -----
+//?            ----- ВАРІАНТ 3 -----
 // const validatePIN = (pin) => /^(\d{4}$|\d{6}$)/.test(pin);
-//?            ----- ВАРІАНТ4 -----
+//?            ----- ВАРІАНТ 4 -----
 // function validatePIN(pin) {
 //   //return true or false
 //   var n = pin.length;
@@ -422,7 +422,7 @@
 //   for (var i in pin) if (pin[i] > "9" || pin[i] < "0") return false;
 //   return true;
 // }
-//?            ----- ВАРІАНТ5 -----
+//?            ----- ВАРІАНТ 5 -----
 // function validatePIN(pin) {
 //   var reg = new RegExp("^([0-9]{4}|[0-9]{6})$");
 //   return reg.test(pin);
@@ -434,7 +434,7 @@
 // console.log(validate("a234")); //  false
 
 //! ============================================================================
-//? Find the next perfect square! (Знайдіть наступний ідеальний квадрат)
+//? Find the next perfect square! (Знайдіть наступний ідеальний квадрат) перевірка на ціле число
 //! ============================================================================
 //* Можливо, ви знаєте кілька досить великих ідеальних квадратів. Але як щодо НАСТУПНОГО?
 //* Завершіть метод findNextSquare, який знаходить наступний інтегральний ідеальний квадрат після переданого як параметра.
@@ -442,7 +442,7 @@
 
 //* Якщо параметр сам по собі не є ідеальним квадратом, потрібно повернути - 1. Ви можете вважати, що параметр невід’ємний.
 
-//?            ----- ВАРІАНТ1 -----
+//?            ----- ВАРІАНТ 1 -----
 // function findNextSquare(sq) {
 // Check if n is the square of an integer
 //   if (Math.sqrt(sq) % 1 !== 0) {
@@ -453,18 +453,28 @@
 //   return sq ** 2;
 // }
 
-//?            ----- ВАРІАНТ2 -----
+//?            ----- ВАРІАНТ 2 -----
 // function findNextSquare(sq) {
 //   const sqrt = Math.sqrt(sq);
 //   if (Math.sqrt(sq) % 1 === 0) {
 //     return (Math.sqrt(sq) + 1) ** 2;
 //   } else return -1;
 // }
-//?            ----- ВАРІАНТ3 -----
+//?            ----- ВАРІАНТ 3 -----
 // function findNextSquare(sq) {
 //   return Math.sqrt(sq) % 1 ? -1 : Math.pow(Math.sqrt(sq) + 1, 2);
 // }
-//?            ----- ВАРІАНТ4 -----
+//?            ----------
+// function findNextSquare(sq) {
+//   var root = Math.sqrt(sq);
+//   return root % 1 === 0 ? Math.pow(root + 1, 2) : -1;
+// }
+//?            ----------
+// function findNextSquare(sq) {
+//   let r = Math.sqrt(sq);
+//   return r % 1 ? -1 : ++r * r;
+// }
+//?            ----- ВАРІАНТ 4 -----
 // function findNextSquare(sq) {
 //   var number = Math.sqrt(sq);
 //   if (Math.round(number) === number) {
@@ -472,26 +482,147 @@
 //   }
 //   return -1;
 // }
+//?            ----- ВАРІАНТ 5 -----
+// function findNextSquare(sq) {
+//   var x = Math.sqrt(sq);
+//   var y = x + "";    //  Перетворює значення змінної x в рядок, використовуючи конкатенацію з пустим рядком. Це зроблено для того, щоб перевірити, чи є квадратний корінь цілим числом.
+//   var z = Number(x);   // Перетворює значення змінної x з рядка на число
+//   if (y.indexOf(".") === -1) {    // Перевіряє, чи в рядковому представленні числа x є крапка (десяткова частина)  y.indexOf(".") повертає індекс першого входження крапки у рядок y. Якщо крапка не знайдена (індекс -1), це означає, що x є цілим числом (квадратом цілого числа).
+//     return (z + 1) * (z + 1);
+//   }
+//   return -1;
+// }
 //! console
-console.log(findNextSquare(121)); // 144
-console.log(findNextSquare(625)); // 676
-console.log(findNextSquare(114)); // -1 since 114 is not a perfect square
+// console.log(findNextSquare(121)); // 144
+// console.log(findNextSquare(625)); // 676
+// console.log(findNextSquare(114)); // -1 since 114 is not a perfect square
 
 //! ============================================================================
-//* Task 7
+//?  String ends with?  Рядок закінчується на?
+//! ============================================================================
+// Завершіть розв’язання так, щоб воно повертало true, якщо перший переданий аргумент(рядок) закінчувався другим аргументом(також рядком).
+// solution('abc', 'bc') // returns true
+// solution('abc', 'd') // returns false
+//! ============================================================================
+// Sum of Digits / Digital Root  (Сума цифр / цифровий корінь)
+// Цифровий корінь — це рекурсивна сума всіх цифр числа.
+
+// Дано n, візьміть суму цифр числа n. Якщо це значення містить більше однієї цифри, продовжуйте скорочувати таким чином,
+// доки не вийде однозначне число.Вхідними даними буде невід’ємне ціле число.
+//     16  -->  1 + 6 = 7
+//    942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+// 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+// 493193  -- > 4 + 9 + 3 + 1 + 9 + 3 = 29  -- > 2 + 9 = 11  -- > 1 + 1 = 2
+
+//! ============================================================================
+//? Task 8   Vowel Count Підрахунок голосних   /[aeiou]/
+//! ============================================================================
+//* Повертає кількість (кількість) голосних у заданому рядку.
+//* Ми будемо розглядати a, e, i, o, u як голосні для цієї ката (але не y).
+//* Рядок введення складатиметься лише з малих літер та/або пробілів.
+
+//?            ----- ВАРІАНТ 1 -----
+// function getCount(str) {
+//   return str.split("").filter((a) => /[aeiou]/gi.test(a)).length;
+// }
+//?            ----- ВАРІАНТ 2 -----
+// function getCount(str) {
+//   return (str.match(/[aeiou]/gi) || []).length;
+// }
+//?            ----- ВАРІАНТ 3 -----
+// function getCount(str) {
+//   var vowelsCount = 0;
+//   var vowels = ["a", "e", "i", "o", "u"];
+//   for (var i = 0; i < str.length; i++) {
+//     for (var j = 0; j < vowels.length; j++) {
+//       if (str[i] === vowels[j]) {
+//         vowelsCount++;
+//       }
+//     }
+//   }
+
+//   return vowelsCount;
+// }
+//?            ----- ВАРІАНТ 4 -----
+// function getCount(str) {
+//   return str.split("").filter((c) => "aeiouAEIOU".includes(c)).length;
+// }
+//?            ----- ВАРІАНТ 5 -----
+// function getCount(str) {
+//   return str.replace(/[^aeiou]/gi, "").length;
+// }
+//?            ----- ВАРІАНТ 6 -----
+// function getCount(str) {
+//   var vowelsCount = 0;
+//   str.split("").forEach(function (x) {
+//     if ((x == "a") | (x == "e") | (x == "i") | (x == "o") | (x == "u")) {
+//       vowelsCount += 1;
+//     }
+//   });
+//   return vowelsCount;
+// }
+//?            ----- ВАРІАНТ 7 -----
+// function getCount(str) {
+//   var vowelsCount = 0;
+//   for (index in str) {
+//     switch (str[index]) {
+//       case "a":
+//       case "e":
+//       case "i":
+//       case "o":
+//       case "u":
+//         vowelsCount++;
+//         break;
+//     }
+//   }
+//   return vowelsCount;
+// }
+//?            ----- ВАРІАНТ 8 -----
+// function getCount(str) {
+//   let vowels = ["a", "e", "i", "o", "u"];
+//   return str.split("").filter((letter) => {
+//     return vowels.includes(letter) ? true : false;
+//   }).length;
+// }
+//! console
+// console.log(getCount("asdfgfodsusi")); //
 //! ============================================================================
 
 //! ============================================================================
-//* Task 8
+//?  Beginner Series #1 School Paperwork (Серія для початківців №1. Шкільна документація)
 //! ============================================================================
+//* Ваші однокласники попросили вас скопіювати для них деякі документи. Ви знаєте, що є «n» однокласників, а документи мають «m» сторінок.
+//* Ваше завдання підрахувати, скільки чистих сторінок вам потрібно. Якщо n < 0 або m < 0, поверніть 0.
+//* n= 5, m=5: 25
+//* n=-5, m=5:  0
 
-//! ============================================================================
-//* Task 9
-//! ============================================================================
-//              node script                  - запуск через термінал ≡
+//?            ----- ВАРІАНТ 1 -----
+// function add(n, m) {
+//   if (n < 0 || m < 0) {
+//     return 0;
+//   } else return n * m;
+// }
+
+//?            ----- ВАРІАНТ 2 -----
+// const calculateBlankPages = (n, m) => (n < 0 || m < 0 ? 0 : n * m);
+
+//?            ----- ВАРІАНТ 3 -----
+// function calculateBlankPages(n, m) {
+//   return n < 0 || m < 0 ? 0 : n * m;
+// }
+//?            ----------------
+// function paperwork(n, m) {
+//   return n > 0 && m > 0 ? n * m : 0;
+// }
+//! console
+// console.log(add(5, 5)); // 25
+// console.log(add(5, -5)); // 0
 //! ============================================================================
 //* Task 10
 //! ============================================================================
+//* Реалізуйте функцію, яка додає два числа та повертає їхню суму в двійковому вигляді. Перетворення можна виконати до або після додавання.
+
+//* Повернуте двійкове число має бути рядком.
 
 //! ============================================================================
 //* Task 11
@@ -508,7 +639,7 @@ console.log(findNextSquare(114)); // -1 since 114 is not a perfect square
 //! ============================================================================
 //* Task 14
 //! ============================================================================
-
+//              node script                  - запуск через термінал ≡
 //! ============================================================================
 //* Task 15
 //! ============================================================================
